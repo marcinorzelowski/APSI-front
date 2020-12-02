@@ -18,7 +18,9 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:typedef
   onSubmit() {
+    return true;
 
   }
 
