@@ -1,13 +1,15 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="registerGroup">
+  <h1> REGISTER </h1>
   <div class="form-group">
     <label for="email">Email:</label>
     <input type="text" id="email" class="form-control" formControlName="email">
+    
   </div>
   <div class="form-group">
     <label for="password">Password:</label>
-    <input type="password" id="password" class="form-control" formControlName="password">
+    <input type="password" id="password" class="form-control" formControlName="password" >
   </div>
   <button type="submit" class="btn btn-success">Zarejestruj</button>
-  <button type="button" class="btn-info">Przejdź do logowania</button>
+  <button type="button" class="btn btn-secondary">Przejdź do logowania</button>
 </form>
 

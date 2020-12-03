@@ -1,4 +1,5 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="loginGroup">
+  <h1> LOGIN </h1>
   <div class="form-group">
     <label for="email">Email:</label>
     <input type="text" id="email" class="form-control" formControlName="email">
@@ -7,6 +8,6 @@
     <label for="password">Password:</label>
     <input type="password" id="password" class="form-control" formControlName="password">
   </div>
-  <button type="submit" class="btn btn-success">Zaloguj</button>
-  <button type="button" class="btn-info">Przejdź do rejestracji</button>
+  <button type="submit" class="btn btn-dark">Zaloguj</button>
+  <button type="button" class="btn btn-primary">Przejdź do rejestracji</button>
 </form>

@@ -2,3 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*:host(.active) {
+    border-width: 100px;
+  }*/
+
+  p { color : rgb(28, 28, 29)}
+
+  h1 
+  {
+    font-family: 'Lato', sans-serif;
+  } 
