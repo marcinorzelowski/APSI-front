@@ -1,4 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, #ffafbd 0%, #ffc3a0 100%);
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*:host(.active) {
+    border-width: 100px;
+  }*/
+.card {
+  max-width: 40%;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 25px;
+  border: 2px;
+  box-shadow: -1px 3px 15px 1px #000000;
+}
+
+p {
+  color: rgb(28, 28, 29)
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+}

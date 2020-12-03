@@ -1,13 +1,22 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="registerGroup">
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="text" id="email" class="form-control" formControlName="email">
+<div class="card">
+  <div class="card-header">
+    <h1>Rejestracja</h1>
   </div>
-  <div class="form-group">
-    <label for="password">Password:</label>
-    <input type="password" id="password" class="form-control" formControlName="password">
-  </div>
-  <button type="submit" class="btn btn-success">Zarejestruj</button>
-  <button type="button" class="btn-info">Przejdź do logowania</button>
-</form>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerGroup">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" class="form-control" formControlName="email">
 
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" class="form-control" formControlName="password">
+      </div>
+      <button type="submit" class="btn btn-success">Zarejestruj</button>
+      <button type="button" class="btn btn-secondary">Przejdź do logowania</button>
+    </form>
+
+
+  </div>
+</div>
