@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {AuthService} from '../auth.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +12,9 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   registerGroup: FormGroup;
-  constructor() { }
+  constructor(private authService: AuthService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.registerGroup = new FormGroup({
@@ -18,10 +23,15 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line:typedef
-  onSubmit() {
-    return true;
+  onSubmit(): void {
+    this.authService.register(
+      this.registerGroup.controls.email.value,
+      this.registerGroup.controls.password.value
+    ).subscribe();
 
   }
 
+  goToLoginPage(): void {
+    this.router.navigate(['../login'], {relativeTo: this.route});
+  }
 }
