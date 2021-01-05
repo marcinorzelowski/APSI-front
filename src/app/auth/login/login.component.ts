@@ -27,10 +27,12 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onSubmit() {
-    this.authService.register(
+    this.authService.login(
       this.loginGroup.controls.email.value,
       this.loginGroup.controls.password.value
-    ).subscribe();
+    ).subscribe(
+      () => this.router.navigate(['../dashboard'], {relativeTo: this.route})
+    );
   }
 
   goToRegisterPage(): void {

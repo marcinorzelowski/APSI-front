@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   registerGroup: FormGroup;
+  errorMessage = null;
   constructor(private authService: AuthService,
               private route: ActivatedRoute,
               private router: Router) { }
@@ -19,16 +20,24 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registerGroup = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.minLength(8), Validators.email]),
-      password: new FormControl('', [Validators.required])
+      password: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      password2: new FormControl('', [Validators.required, Validators.minLength(4)])
     });
   }
 
   onSubmit(): void {
-    this.authService.register(
-      this.registerGroup.controls.email.value,
-      this.registerGroup.controls.password.value
-    ).subscribe();
-
+    if (this.registerGroup.controls.password.value !== this.registerGroup.controls.password2.value) {
+      this.errorMessage = 'Hasła muszą być takie same';
+      return;
+    }
+    if (this.registerGroup.valid) {
+      this.authService.register(
+        this.registerGroup.controls.email.value,
+        this.registerGroup.controls.password.value
+      ).subscribe();
+    } else {
+      this.errorMessage = this.registerGroup.errors;
+    }
   }
 
   goToLoginPage(): void {
