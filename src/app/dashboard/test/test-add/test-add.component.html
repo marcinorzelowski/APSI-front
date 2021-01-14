@@ -1,0 +1,112 @@
+<div class="card">
+  <div class="card-header mb-3">
+    <h2>Test</h2>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col">
+        <form #addTest="ngForm" (ngSubmit)="onSubmit(addTest)">
+          <div class="form-floating mb-4">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="name"
+              ngModel
+              name=name>
+
+          </div>
+          <div class="form-floating mb-4">
+            <label for="data">Data</label>
+            <input
+              type="text"
+              class="form-control"
+              id="data"
+              placeholder="name"
+              ngModel
+              name=data>
+
+          </div>
+          <div class="form-floating mb-4">
+            <label for="executeDate">Execute date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="executeDate"
+              placeholder="type"
+              ngModel
+              name=executeDate>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="testName">Test Type</label>
+              <select
+                class="form-control"
+                id="testName"
+                name=testName
+                [(ngModel)]="testType">
+                <option
+                  [value]="test.name"
+                  *ngFor="let test of testTypes"
+                  >{{test.name}}</option>
+              </select>
+            </div>
+            <div class="col">
+              <label for="scenarioName">Scenario</label>
+              <select
+                class="form-control"
+                id="scenarioName"
+                name=scenarioName
+                [(ngModel)]="scenarioName">
+                <option
+                  [value]="scen.name"
+                  *ngFor="let scen of scenarios"
+                  >{{scen.name}}</option>
+              </select>
+            </div>
+            <div class="col">
+              <label for="specName">Specification</label>
+              <select
+                class="form-control"
+                id="specName"
+                name=specName
+                [(ngModel)]="specName">
+                <option
+                  [value]="spec.spec_name"
+                  *ngFor="let spec of specifications"
+                  >{{spec.spec_name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <!--        <select class="form-select form-select-lg mb-4" aria-label=".form-select-lg example">-->
+          <!--          <option selected>Test type</option>-->
+          <!--          <option value="1">One</option>-->
+          <!--          <option value="2">Two</option>-->
+          <!--          <option value="3">Three</option>-->
+          <!--        </select>-->
+
+          <!--        <select class="form-select form-select-lg mb-4" aria-label=".form-select-lg example">-->
+          <!--          <option selected>Scenario ID</option>-->
+          <!--          <option value="1">One</option>-->
+          <!--          <option value="2">Two</option>-->
+          <!--          <option value="3">Three</option>-->
+          <!--        </select>-->
+          <!--        <select class="form-select form-select-lg mb-4" aria-label=".form-select-lg example">-->
+          <!--          <option selected>Specification ID</option>-->
+          <!--          <option value="1">One</option>-->
+          <!--          <option value="2">Two</option>-->
+          <!--          <option value="3">Three</option>-->
+          <!--        </select>-->
+
+              <button class="btn btn-primary" type="submit">Add</button>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

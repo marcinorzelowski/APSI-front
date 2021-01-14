@@ -1,0 +1,10 @@
+h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: white;
+}
+
+.card-body {
+  background-color: darkgrey;
+}
