@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from './auth/auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,10 +7,9 @@ import {AuthService} from './auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  constructor(private authService: AuthService) {}
+  constructor() {}
   title = 'Test Monitor';
   ngOnInit(): void {
-    this.authService.autoLogin();
   }
 
 }
