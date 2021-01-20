@@ -2,9 +2,9 @@ export class Test {
   constructor(
     public id: number,
     public name: string,
-    public testType: string,
+    public test_type: string,
     public data: string,
-    public executeDate: Date,
+    public execute_date: Date,
     public scenarioName: string,
     public specName: string
 

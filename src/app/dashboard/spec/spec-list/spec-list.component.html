@@ -1,1 +1,30 @@
-<p>spec-list works!</p>
+<div class="card">
+  <div class="card-header">
+    <h3>Tests</h3>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped table-dark">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Parameter Int #1</th>
+        <th scope="col">Parameter Str #2</th>
+        <th scope="col">Parameter Str #3</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let spec of specs; let i = index">
+        <th scope="row">{{i}}</th>
+        <td>{{spec.spec_name}}</td>
+        <td>{{spec.paramInt1}}</td>
+        <td>{{spec.paramStr2}}</td>
+        <td>{{spec.paramStr3}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+

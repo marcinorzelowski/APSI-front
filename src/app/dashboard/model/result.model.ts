@@ -1,9 +1,9 @@
 export class Result {
   constructor(
-    public id: number,
-    public status: string,
+    public result: string,
     public timestamp: Date,
-    public testId: number
+    public data: string,
+    public test_name: string
   ) {
   }
 }

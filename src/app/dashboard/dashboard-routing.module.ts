@@ -8,6 +8,9 @@ import {SpecAddComponent} from './spec/spec-add/spec-add.component';
 import {TestComponent} from './test/test.component';
 import {TestAddComponent} from './test/test-add/test-add.component';
 import {TestListComponent} from './test/test-list/test-list.component';
+import {ResultsComponent} from './results/results.component';
+import {ScenarioListComponent} from "./scenario/scenario-list/scenario-list.component";
+import {SpecListComponent} from "./spec/spec-list/spec-list.component";
 
 const routes: Routes = [
   {
@@ -16,12 +19,14 @@ const routes: Routes = [
     children: [
       {
         path: 'scenario', component: ScenarioComponent, children: [
-          {path: 'add', component: ScenarioAddComponent}
+          {path: 'add', component: ScenarioAddComponent},
+          {path: 'list', component: ScenarioListComponent}
         ]
       },
       {
         path: 'spec', component: SpecComponent, children: [
-          {path: 'add', component: SpecAddComponent}
+          {path: 'add', component: SpecAddComponent},
+          {path: 'list', component: SpecListComponent}
         ]
       },
       {
@@ -29,6 +34,9 @@ const routes: Routes = [
           {path: 'add', component: TestAddComponent},
           {path: 'list', component: TestListComponent}
         ]
+      },
+      {
+        path: 'results', component: ResultsComponent
       }
     ]
   }
