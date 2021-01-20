@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {DataService} from '../../service/data.service';
+import {Router} from '@angular/router';
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-spec-add',
@@ -9,7 +11,8 @@ import {DataService} from '../../service/data.service';
 })
 export class SpecAddComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
@@ -20,6 +23,27 @@ export class SpecAddComponent implements OnInit {
     const paramStr2 = addScenario.value.paramStr2;
     const paramStr3 = addScenario.value.paramStr3;
 
-    this.dataService.addSpec({'spec_name': name, 'paramInt1': paramInt1, 'paramStr2': paramStr2, 'paramStr3': paramStr3}).subscribe();
+    const specToAdd = {
+      'spec_name': name,
+      'paramInt1': paramInt1,
+      'paramStr2': paramStr2,
+      'paramStr3': paramStr3
+    }
+
+    this.dataService.addSpec(specToAdd)
+      .then((response) => {
+        alert(this.mapResponse(response.msg));
+        return response;
+      })
+      .catch((error: HttpErrorResponse) => alert(this.mapResponse(error.message)))
+      .then(() => this.router.navigate(['dashboard']));
+  }
+
+  private mapResponse(msg: string): string {
+    if (msg === 'success') {
+      return 'Adding spec was successful';
+    } else {
+      return 'Somethin went wrong';
+    }
   }
 }

@@ -12,6 +12,7 @@ import {SpecComponent} from './spec/spec.component';
 import {SpecAddComponent} from './spec/spec-add/spec-add.component';
 import {SpecListComponent} from './spec/spec-list/spec-list.component';
 import {FormsModule} from '@angular/forms';
+import {ResultsComponent} from "./results/results.component";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {FormsModule} from '@angular/forms';
     ScenarioAddComponent,
     SpecComponent,
     SpecAddComponent,
-    SpecListComponent],
+    SpecListComponent,
+    ResultsComponent],
   imports: [
     CommonModule,
     DasbboardRoutingModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Scenario} from '../model/scenario.model';
 import {DataService} from '../service/data.service';
 
@@ -9,10 +9,12 @@ import {DataService} from '../service/data.service';
 })
 export class ScenarioComponent implements OnInit {
   scenarios: Scenario[] = [];
-  constructor(private dataService: DataService) { }
+
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit(): void {
-    this.dataService.getScenarios().subscribe(
+    this.dataService.getScenarios().then(
       (data: Scenario[]) => {
         this.scenarios = data;
       }

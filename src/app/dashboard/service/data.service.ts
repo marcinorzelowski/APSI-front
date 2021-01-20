@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
 import {Scenario} from '../model/scenario.model';
@@ -17,26 +17,26 @@ export class DataService {
   constructor(private httpClient: HttpClient) {
   }
 
-  addScenario(name: string, description: string): Observable<any> {
+  addScenario(name: string, description: string): Promise<any> {
     return this.httpClient.post(AUTH_API + '/scenario/add', {
       name,
       description
-    });
+    }).toPromise();
   }
 
-  getScenarios(): Observable<Scenario[]> {
-    return this.httpClient.get<Scenario[]>(AUTH_API + '/scenario/show');
+  getScenarios(): Promise<Scenario[]> {
+    return this.httpClient.get<Scenario[]>(AUTH_API + '/scenario/show').toPromise();
   }
 
-  getSpecs(): Observable<Specification[]> {
-    return this.httpClient.get<Specification[]>(AUTH_API + '/spec/show');
+  getSpecs(): Promise<Specification[]> {
+    return this.httpClient.get<Specification[]>(AUTH_API + '/spec/show').toPromise();
   }
 
   getTests(): Observable<Test[]> {
     return this.httpClient.get<Test[]>(AUTH_API + '/test/show');
   }
 
-  addTest(name: string, data: string, execDate: Date, testType: string, scenarioName: string, specName: string): Observable<any> {
+  addTest(name: string, data: string, execDate: Date, testType: string, scenarioName: string, specName: string): Promise<any> {
     return this.httpClient.post(AUTH_API + '/test/add', {
       'name': name,
       'test_type': testType,
@@ -44,20 +44,26 @@ export class DataService {
       'execute_date': execDate,
       'scenario_name': scenarioName,
       'spec_name': specName
-    });
+    }).toPromise();
   }
 
-  addSpec(spec: Specification): Observable<any> {
+  addSpec(spec: Specification): Promise<any> {
     return this.httpClient.post(AUTH_API + '/spec/add', {
       spec_name: spec.spec_name,
       paramInt1: spec.paramInt1,
       paramStr2: spec.paramStr2,
       paramStr3: spec.paramStr3
-    });
+    }).toPromise();
   }
 
-  getResults(): Observable<Result[]> {
-    return this.httpClient.get<Result[]>(AUTH_API + '/result/show');
+  getResults(): Promise<Result[]> {
+    return this.httpClient.get<Result[]>(AUTH_API + '/results/show')
+      .toPromise();
+  }
 
+  runTest(myName: string): Promise<any> {
+    return this.httpClient.post(AUTH_API + '/test/run', {
+        name: myName
+      }).toPromise();
   }
 }
