@@ -33,7 +33,7 @@ export class DataService {
   }
 
   getTests(): Observable<Test[]> {
-    return this.httpClient.get<Test[]>(AUTH_API + '/test/show');
+    return this.httpClient.get<Test[]>(AUTH_API + '/test/show/all');
   }
 
   addTest(name: string, data: string, execDate: Date, testType: string, scenarioName: string, specName: string): Promise<any> {

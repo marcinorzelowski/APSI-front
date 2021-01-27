@@ -10,6 +10,10 @@
         <th scope="col">Name</th>
         <th scope="col">Type</th>
         <th scope="col">Execution Date</th>
+        <th scope="col">Numeric param</th>
+        <th scope="col">Key</th>
+        <th scope="col">Value</th>
+        <th scope="col">Description</th>
         <th scope="col">Data</th>
         <th scope="col">Run</th>
 
@@ -21,6 +25,10 @@
         <td>{{test.name}}</td>
         <td>{{test.test_type}}</td>
         <td>{{test.execute_date}}</td>
+        <td>{{test.paramInt1}}</td>
+        <td>{{test.paramStr2}}</td>
+        <td>{{test.paramStr3}}</td>
+        <td>{{test.description}}</td>
         <td>{{test.data}}</td>
         <td><button mat-button (click)="onClick(test.name)">Run</button></td>
       </tr>
