@@ -12,7 +12,8 @@ import {SpecComponent} from './spec/spec.component';
 import {SpecAddComponent} from './spec/spec-add/spec-add.component';
 import {SpecListComponent} from './spec/spec-list/spec-list.component';
 import {FormsModule} from '@angular/forms';
-import {ResultsComponent} from "./results/results.component";
+import {ResultsComponent} from './results/results.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -28,11 +29,12 @@ import {ResultsComponent} from "./results/results.component";
     SpecAddComponent,
     SpecListComponent,
     ResultsComponent],
-  imports: [
-    CommonModule,
-    DasbboardRoutingModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        DasbboardRoutingModule,
+        FormsModule,
+        NgxChartsModule
+    ]
 })
 export class DashboardModule {
 }

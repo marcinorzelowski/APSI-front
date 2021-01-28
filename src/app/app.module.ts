@@ -8,6 +8,7 @@ import {DashboardModule} from './dashboard/dashboard.module';
 import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 import {MatDialogModule} from '@angular/material/dialog';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         BrowserAnimationsModule,
         DashboardModule,
         SharedModule,
-        MatDialogModule
+        MatDialogModule,
+        NgxChartsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

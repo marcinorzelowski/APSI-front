@@ -9,6 +9,14 @@ import {Result} from '../model/result.model';
 
 const AUTH_API = environment.apiUrl + '/dashboard';
 
+
+// tslint:disable-next-line:class-name
+export interface resultChartData {
+  spec_name: string;
+  time: number;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -65,5 +73,12 @@ export class DataService {
     return this.httpClient.post(AUTH_API + '/test/run', {
         name: myName
       }).toPromise();
+  }
+
+  // TODO: Check with backendAPI
+  getResultsCharts(name: string): Promise<resultChartData[]> {
+    return this.httpClient.post<resultChartData[]>(AUTH_API + '/results/chart/show', {
+      name
+    }).toPromise();
   }
 }

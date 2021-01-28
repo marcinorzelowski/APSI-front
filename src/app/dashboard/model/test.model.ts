@@ -10,7 +10,6 @@ export class Test {
     public spec_name: string,
     public test_type: string,
     public name: string,
-    public test_type: string,
     public data: string,
     public execute_date: Date,
     public scenarioName: string,
