@@ -16,9 +16,9 @@ export class TestAddComponent implements OnInit {
   scenarios: Scenario[] = [];
   specifications: Specification[] = [];
   testTypes: { id: number, name: string }[] = [
-    {id: 1, name: 'One'},
-    {id: 2, name: 'Two'},
-    {id: 3, name: 'Three'},
+    {id: 1, name: 'Integration'},
+    {id: 2, name: 'Unit'},
+    {id: 3, name: 'Other'},
   ];
 
   testType: string;

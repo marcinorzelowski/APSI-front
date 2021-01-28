@@ -1,0 +1,14 @@
+h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: black;
+}
+
+.card {
+  max-width: 90%;
+}
+
+.card-body {
+  background-color: darkgrey;
+}

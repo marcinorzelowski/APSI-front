@@ -6,6 +6,7 @@ import {Scenario} from '../model/scenario.model';
 import {Specification} from '../model/specification.model';
 import {Test} from '../model/test.model';
 import {Result} from '../model/result.model';
+import {Group} from "../model/group.model";
 
 const AUTH_API = environment.apiUrl + '/dashboard';
 
@@ -41,7 +42,7 @@ export class DataService {
   }
 
   getTests(): Observable<Test[]> {
-    return this.httpClient.get<Test[]>(AUTH_API + '/test/show/all');
+    return this.httpClient.get<Test[]>(AUTH_API + '/test/show');
   }
 
   addTest(name: string, data: string, execDate: Date, testType: string, scenarioName: string, specName: string): Promise<any> {
@@ -58,9 +59,7 @@ export class DataService {
   addSpec(spec: Specification): Promise<any> {
     return this.httpClient.post(AUTH_API + '/spec/add', {
       spec_name: spec.spec_name,
-      paramInt1: spec.paramInt1,
-      paramStr2: spec.paramStr2,
-      paramStr3: spec.paramStr3
+      url: spec.url
     }).toPromise();
   }
 
@@ -69,16 +68,34 @@ export class DataService {
       .toPromise();
   }
 
+  addGroup(name: string, testName: string, specName: string): Promise<any> {
+    return this.httpClient.post(AUTH_API + '/group/add', {
+      'name': name,
+      'test_name': testName,
+      'spec_name': specName
+    }).toPromise();
+  }
+
+  runGroup(name: string): Promise<any> {
+    return this.httpClient.post(AUTH_API + '/group/run', {
+      'name': name
+    }).toPromise();
+  }
+
+  getGroup(): Observable<Group[]> {
+    return this.httpClient.get<Group[]>(AUTH_API + '/groups/show');
+  }
+
   runTest(myName: string): Promise<any> {
     return this.httpClient.post(AUTH_API + '/test/run', {
-        name: myName
-      }).toPromise();
+      name: myName
+    }).toPromise();
   }
 
   // TODO: Check with backendAPI
   getResultsCharts(name: string): Promise<resultChartData[]> {
-    return this.httpClient.post<resultChartData[]>(AUTH_API + '/results/chart/show', {
-      name
+    return this.httpClient.post<resultChartData[]>(AUTH_API + '/avg/show', {
+      'test_name': name
     }).toPromise();
   }
 }

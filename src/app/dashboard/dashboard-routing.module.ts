@@ -9,8 +9,11 @@ import {TestComponent} from './test/test.component';
 import {TestAddComponent} from './test/test-add/test-add.component';
 import {TestListComponent} from './test/test-list/test-list.component';
 import {ResultsComponent} from './results/results.component';
-import {ScenarioListComponent} from "./scenario/scenario-list/scenario-list.component";
-import {SpecListComponent} from "./spec/spec-list/spec-list.component";
+import {ScenarioListComponent} from './scenario/scenario-list/scenario-list.component';
+import {SpecListComponent} from './spec/spec-list/spec-list.component';
+import {GroupAddComponent} from './group/group-add/group-add.component';
+import {GroupListComponent} from './group/group-list/group-list.component';
+import {GroupComponent} from './group/group.component';
 
 const routes: Routes = [
   {
@@ -37,6 +40,12 @@ const routes: Routes = [
       },
       {
         path: 'results', component: ResultsComponent
+      },
+      {
+        path: 'group', component: GroupComponent, children: [
+          {path: 'add', component: GroupAddComponent},
+          {path: 'list', component: GroupListComponent}
+        ]
       }
     ]
   }

@@ -17,18 +17,14 @@ export class SpecAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(addScenario: NgForm): void {
-    const name = addScenario.value.name;
-    const paramInt1 = addScenario.value.paramInt1;
-    const paramStr2 = addScenario.value.paramStr2;
-    const paramStr3 = addScenario.value.paramStr3;
+  onSubmit(addSpec: NgForm): void {
+    const name = addSpec.value.name;
+    const url = addSpec.value.uerel;
 
     const specToAdd = {
       'spec_name': name,
-      'paramInt1': paramInt1,
-      'paramStr2': paramStr2,
-      'paramStr3': paramStr3
-    }
+      'url': url
+    };
 
     this.dataService.addSpec(specToAdd)
       .then((response) => {
@@ -43,7 +39,7 @@ export class SpecAddComponent implements OnInit {
     if (msg === 'success') {
       return 'Adding spec was successful';
     } else {
-      return 'Somethin went wrong';
+      return 'Something went wrong. Insert another Specification name';
     }
   }
 }
