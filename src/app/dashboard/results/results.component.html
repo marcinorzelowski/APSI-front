@@ -1,45 +1,55 @@
-<table class="table table-striped table-dark">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Status</th>
-    <th scope="col">Timestamp</th>
-    <th scope="col">Test Name</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let result of results; let i = index">
-    <th scope="row">{{i}}</th>
-    <td>{{result.result}}</td>
-    <td>{{result.timestamp}}</td>
-    <td>{{result.test_name}}</td>
-  </tr>
+<div class="card">
+  <div class="card-header  mb-3">
+    <h3>Results</h3>
+  </div>
 
-  </tbody>
-</table>
+  <div class="container">
 
-<select class="select-option" #testSelect (change)="reloadData(testSelect.value)">
-  <option class="option" *ngFor="let option of testNames" [value]="option">{{option}}</option>
-</select>
+      <div class="col">
+          <div class ="row justify-content-center">
+        <table class="table table-striped table-dark">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Status</th>
+            <th scope="col">Timestamp</th>
+            <th scope="col">Test Name</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let result of results; let i = index">
+            <th scope="row">{{i}}</th>
+            <td>{{result.result}}</td>
+            <td>{{result.timestamp}}</td>
+            <td>{{result.test_name}}</td>
+          </tr>
+
+          </tbody>
+        </table>
+
+        <select class="select-option" #testSelect (change)="reloadData(testSelect.value)">
+          <option class="option" *ngFor="let option of testNames" [value]="option">{{option}}</option>
+        </select>
 
 
-
-<div class="chart">
-  <ngx-charts-bar-vertical
-    [view]="[1000,400]"
-    [scheme]="'neons'"
-    [results]="chartResults"
-    [xAxisLabel]="'Specification used'"
-    [legendTitle]="''"
-    [yAxisLabel]="'Time [s]'"
-    [legend]="true"
-    [showXAxisLabel]="true"
-    [showYAxisLabel]="true"
-    [xAxis]="true"
-    [yAxis]="true"
-    [gradient]="true"
-    style="fill: white;">
-  </ngx-charts-bar-vertical>
+        <div class="chart">
+          <ngx-charts-bar-vertical
+            [view]="[800,300]"
+            [scheme]="'neons'"
+            [results]="chartResults"
+            [xAxisLabel]="'Specification used'"
+            [legendTitle]="''"
+            [yAxisLabel]="'Time [s]'"
+            [legend]="true"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            [xAxis]="true"
+            [yAxis]="true"
+            [gradient]="true"
+            style="fill: black;">
+          </ngx-charts-bar-vertical>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-

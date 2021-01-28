@@ -1,16 +1,19 @@
 table {
-  margin-top: 2rem;
-  max-width: 80%;
+  margin-top: 0;
+  max-width: auto;
   margin-left: auto;
   margin-right: auto;
 }
 
 .chart {
   margin-right: auto;
-  max-width: 80%;
+  max-width: auto;
   margin-left: auto;
   margin-top: 2rem;
-
+  margin-bottom: 2rem;
 }
 
+.select-option {
+  max-height: 2rem;
+}
 
